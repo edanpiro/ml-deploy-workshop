@@ -2,8 +2,8 @@ name: CD - Deploy a AKS
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
+  # push:
+  #  branches: [main]
 
 jobs:
   deploy:
@@ -27,7 +27,7 @@ jobs:
         with:
           resource-group: ${{ vars.AZURE_RESOURCE_GROUP }}
           cluster-name: ${{ vars.AKS_CLUSTER_NAME }}
-          admin: false
+          admin: true
 
       - name: Instalar kubelogin
         uses: azure/use-kubelogin@v1
